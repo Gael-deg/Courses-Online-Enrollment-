@@ -1,0 +1,50 @@
+<nav class="navbar navbar-expand navbar-dark bg-dark mb-3">
+
+    <a class="navbar-brand ms-3" routerLink="/">Brodemy</a>
+    
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" 
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+        
+        <ul class="navbar-nav me-auto">
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/courses">Course</a>
+            </li>
+            
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/aboutus">About us</a>
+            </li>
+        </ul>
+
+        <ul class="navbar-nav ms-auto me-3">
+
+            <div *ngIf="hasToken; else noToken">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" 
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                      {{email}}
+                    </a>
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" (click)="logout()">Logout</a></li>
+                    </ul>
+                  </li>
+            </div>
+
+            <div>
+                <ng-template #noToken>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="/login">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="/register">Register</a>
+                    </li>
+                </ng-template>
+            </div>
+           
+        </ul>
+
+    </div>
+</nav>

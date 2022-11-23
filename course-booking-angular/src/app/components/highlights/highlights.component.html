@@ -1,0 +1,16 @@
+<section class="row">
+    <article class="col-12 col-md-4" *ngFor="let item of data">
+
+        <!-- First Highlights Card Start -->
+        <div class="card h-100 mx-2">
+            <div class="card-body">
+
+                <h3 class="card-title pb-3">{{ item['title'] }}</h3>
+                <p class="card-text text-justify">{{ item['description'] }}</p>
+                
+            </div>
+        </div>
+        <!-- First Highlights Card End -->
+
+    </article>
+</section>

@@ -1,0 +1,7 @@
+<h3 class="text-center my-4"> Bro Courses </h3>
+<div *ngIf="isAdmin">
+    <button type="button" class="btn btn-primary mx-3" routerLink="/addcourse">Add Course</button>
+</div>
+<div class="row mt-4">
+    <app-course *ngFor="let course of courses" [course]="course"></app-course>
+</div>

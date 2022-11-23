@@ -1,0 +1,71 @@
+<div class="row justify-content-center">
+    <div class="col-12 col-md-6">
+        <h3>Register</h3>
+        <form (ngSubmit)="onSubmit()">
+            <div class="mb-3">
+                <label for="firstname">First Name: </label>
+                <input 
+                type="text" 
+                class="form-control" 
+                [(ngModel)]="firstName"
+                name="firstname" 
+                required>
+            </div>
+            
+            <div class="mb-3" >
+                <label for="lastname">Last Name: </label>
+                <input 
+                type="text" 
+                class="form-control" 
+                [(ngModel)]="lastName"
+                name="lastname" 
+                required>
+            </div>
+
+            <div class="mb-3">
+                <label for="email">Email: </label>
+                <input 
+                type="email" 
+                class="form-control" 
+                [(ngModel)]="email"
+                name="email" 
+                required>
+            </div>
+
+            <div class="mb-3">
+                <label for="password">Password: </label>
+                <input 
+                type="password" 
+                class="form-control" 
+                [(ngModel)]="password"
+                name="password" 
+                required>
+            </div>
+
+            <div class="mb-3">
+                <label for="confirmPassword">Confirm Password:</label>
+                <input 
+                type="password" 
+                class="form-control" 
+                [(ngModel)]="confirmPassword"
+                name="confirmPassword" 
+                required>
+            </div>
+            
+            <div *ngIf="password==confirmPassword; else confirmPass"></div>
+            
+            <ng-template #confirmPass>
+                <div class="alert alert-warning" role="alert">
+                    <p>Password and confirm password do not match</p>
+                </div>
+            </ng-template>
+
+            <!-- short hand -->
+            <!-- <div class="alert alert-warning" role="alert" [hidden]="password === confirmPassword">
+                <p>Password and confirm password do not match</p>
+            </div> -->
+
+            <button type="submit" class="btn btn-success" (click)="onSubmit" >Register</button>
+        </form>
+    </div>
+</div>
